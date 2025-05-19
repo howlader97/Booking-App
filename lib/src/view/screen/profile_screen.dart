@@ -1,4 +1,5 @@
 import 'package:booking_app/src/models/profile_models.dart';
+import 'package:booking_app/src/view/screen/profile_coat_screen.dart';
 import 'package:booking_app/src/view/widget/profile_header.dart';
 import 'package:booking_app/src/view/widget/travel_history.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,13 @@ class ProfileScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ProfileCoatScreen(),
+                          ),
+                        );
+                      },
                       icon: Icon(Icons.arrow_forward_ios),
                     ),
                   ),

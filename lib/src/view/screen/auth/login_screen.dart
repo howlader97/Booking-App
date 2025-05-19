@@ -1,11 +1,10 @@
-// src/view/screen/auth/login_screen.dart
-
+import 'package:booking_app/src/services/firebase_services.dart';
 import 'package:flutter/material.dart';
 import 'package:booking_app/src/models/bottom_icon.dart';
 import 'package:booking_app/src/view/widget/bottomNIcon.dart';
 import 'package:booking_app/src/view/screen/auth/forget_password_screen.dart';
 import 'package:booking_app/src/view/screen/auth/signup_screen.dart';
-import 'package:booking_app/src/view/screen/main_bottom_nave_screen.dart';
+import '../home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -21,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordTEController = TextEditingController();
   final GlobalKey<FormState> _globalkey = GlobalKey<FormState>();
   bool isObsecure= false;
-
+    final  FirebaseServices authLogin=FirebaseServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 30),
                 TextFormField(
+                  controller: _emailTEController,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Enter your valid email';
@@ -70,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 8),
                 TextFormField(
+                  controller: _passwordTEController,
                   obscureText: isObsecure,
                   validator: (value) {
                     if (value!.isEmpty) {
@@ -118,11 +119,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const MainBottomNaveScreen(),
-                        ),
-                      );
+                      if(_globalkey.currentState!.validate()) {
+                        authLogin.signIn(_emailTEController.text.trim(),_passwordTEController.text , context);
+                      }
+
+
                     },
                     child: const Text(
                       'Sign In',
@@ -172,7 +173,9 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ),
+
       ),
     );
   }
+
 }

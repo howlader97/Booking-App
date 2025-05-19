@@ -1,4 +1,5 @@
 import 'package:booking_app/src/models/bottom_icon.dart';
+import 'package:booking_app/src/services/firebase_services.dart';
 import 'package:booking_app/src/view/screen/auth/login_screen.dart';
 import 'package:booking_app/src/view/widget/bottomNIcon.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,8 @@ class _SignupScreenState extends State<SignupScreen> {
     List<BottomIcon> bottomIcons = BottomIcon.getBottomIcon();
     bool isObsecurer= false;
 
+    final FirebaseServices authSignup=FirebaseServices();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -29,7 +32,6 @@ class _SignupScreenState extends State<SignupScreen> {
           child: Form(
             key: _formKey,
             child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -135,16 +137,11 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        if (mounted) {
-                          setState(() {
-                            Navigator.of(context).pushAndRemoveUntil(
-                              MaterialPageRoute(
-                                builder: (context) => LoginScreen(),
-                              ),
-                              (route) => false,
-                            );
-                          });
-                        }
+                       authSignup.signUp(_EmailTEController.text.trim(), _passwordTEController.text);
+                       {
+                         Navigator.of(context).push(MaterialPageRoute(
+                             builder: (context) => LoginScreen()));
+                       }
                       }
                     },
                     child: Text(

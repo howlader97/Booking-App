@@ -14,7 +14,6 @@ class ViewResort {
     this.description,
     //this.price
   );
-
   static List<ViewResort> getResort() {
     List<ViewResort> viewResorts = [
       ViewResort(

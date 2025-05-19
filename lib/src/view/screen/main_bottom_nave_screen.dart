@@ -1,6 +1,7 @@
 
 import 'package:booking_app/src/view/screen/calendar_screen.dart';
 import 'package:booking_app/src/view/screen/home_screen.dart';
+import 'package:booking_app/src/view/screen/profile_coat_screen.dart';
 import 'package:booking_app/src/view/screen/trip_package_screen.dart';
 import 'package:booking_app/src/view/screen/profile_screen.dart';
 import 'package:booking_app/src/view/screen/search.dart';
@@ -22,7 +23,8 @@ class _MainBottomNaveScreenState extends State<MainBottomNaveScreen> {
     CalendarScreen(),
     Search(),
     PopularTripScreen(),
-    ProfileScreen()
+    ProfileScreen(),
+
   ];
   @override
   Widget build(BuildContext context) {
