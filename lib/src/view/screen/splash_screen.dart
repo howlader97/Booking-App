@@ -1,5 +1,6 @@
 
 import 'package:booking_app/src/view/screen/auth/login_screen.dart';
+import 'package:booking_app/src/view/screen/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> gotoLogin() async {
     Future.delayed(const Duration(seconds: 2)).then((value) {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const LoginScreen()),
+          MaterialPageRoute(builder: (context) => const OnboardingScreen()),
               (route) => false);
     });
   }

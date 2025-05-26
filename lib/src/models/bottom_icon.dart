@@ -7,7 +7,7 @@ class BottomIcon{
   
   static List<BottomIcon> getBottomIcon(){
    List<BottomIcon> bottomIcons=[
-     BottomIcon('', 'assets/images/instagram.png', 'assets/images/twiter.jpg')
+     BottomIcon('', 'assets/images/google.png', 'assets/images/twiter.jpg')
    ];
    return bottomIcons;
   }
