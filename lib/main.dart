@@ -81,6 +81,7 @@ class MyApp extends StatelessWidget {
 import 'package:booking_app/firebase_options.dart';
 import 'package:booking_app/src/controller/theme_controller.dart';
 import 'package:booking_app/src/view/screen/auth/login_screen.dart';
+import 'package:booking_app/src/view/screen/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -101,7 +102,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => GetMaterialApp(
-      home: const LoginScreen(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
       themeMode: themeController.theme,
       theme: ThemeData(

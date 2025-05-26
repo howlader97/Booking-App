@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/material.dart';
 import 'package:booking_app/src/models/bottom_icon.dart';
 
@@ -13,27 +12,35 @@ class BottomNIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const CircleAvatar(
-          child: Icon(
-            Icons.facebook,
-            size: 44,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: GestureDetector(
+        onTap: (){
+
+        },
+        child: Container(
+
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.grey.shade200,
+          ),
+          width: double.infinity,
+          height: 50,
+          child: Row(
+            children: [
+              const SizedBox(width: 40,),
+              CircleAvatar(
+                radius: 20,
+                backgroundImage: AssetImage(bottomIcon.secondimage),
+                backgroundColor: Colors.transparent,
+              ),
+              Spacer(),
+              Text('Sign In with gmail',style: Theme.of(context).textTheme.bodyMedium,),
+              Spacer()
+            ],
           ),
         ),
-        const SizedBox(width: 8
-                   ,),
-        CircleAvatar(
-          child: Image.asset(bottomIcon.secondimage),
-        ),
-        const SizedBox(width:8,),
-        CircleAvatar(
-          radius: 20,
-          backgroundImage: AssetImage(bottomIcon.thirdimage),
-          backgroundColor: Colors.transparent,
-        ),
-      ],
+      ),
     );
   }
 }
