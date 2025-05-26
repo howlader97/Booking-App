@@ -1,10 +1,9 @@
-
 import 'package:booking_app/src/view/screen/calendar_screen.dart';
 import 'package:booking_app/src/view/screen/home_screen.dart';
-import 'package:booking_app/src/view/screen/profile_coat_screen.dart';
+import 'package:booking_app/src/view/screen/search_screen.dart';
 import 'package:booking_app/src/view/screen/trip_package_screen.dart';
 import 'package:booking_app/src/view/screen/profile_screen.dart';
-import 'package:booking_app/src/view/screen/search.dart';
+
 import 'package:flutter/material.dart';
 
 class MainBottomNaveScreen extends StatefulWidget {
@@ -21,7 +20,7 @@ class _MainBottomNaveScreenState extends State<MainBottomNaveScreen> {
   final List<Widget> _screens=[
     HomeScreen(),
     CalendarScreen(),
-    Search(),
+    SearchScreen(),
     PopularTripScreen(),
     ProfileScreen(),
 
@@ -72,3 +71,5 @@ class _MainBottomNaveScreenState extends State<MainBottomNaveScreen> {
     );
   }
 }
+
+
